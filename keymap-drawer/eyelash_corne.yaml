@@ -44,8 +44,8 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - LGUI
   - below
-  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-option$$'}
   - {t: '$$mdi:keyboard-space$$', h: Meh+LGUI}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-option$$'}
   - {t: '$$mdi:backspace$$', type: backspace}
   - above
   below:
