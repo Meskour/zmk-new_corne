@@ -11,11 +11,17 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-macro";
+            label = "ALT_TAB";
+            #binding-cells = <0>;
+            bindings = <&kp LALT &kp TAB>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
-        label = "Purcell Corne Keymap";
+        label = "Purcell Corne Emacs Keymap";
 
         base_layer {
             bindings = <
@@ -39,7 +45,7 @@
 
         raise_layer {
             bindings = <
-                &mt LALT TAB &kp C_PREV &kp C_PLAY &kp C_NEXT &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
+                &alt_tab     &kp C_PREV &kp C_PLAY &kp C_NEXT &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
                 &trans       &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &trans                      &trans    &trans    &trans    &trans    &trans    &trans
                 &trans       &kp HOME   &kp PGUP   &kp PGDN   &kp END   &trans                      &trans    &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_FF &kp C_REW
                 &trans       &trans     &trans     &trans     &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
@@ -47,12 +53,12 @@
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        adjust_layer {
+        emacs_layer {
             bindings = <
-                &trans       &trans    &trans    &trans    &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &rst
-                &trans       &trans    &trans    &trans    &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
-                &trans       &kb KB0   &kb KB1   &kb KB2   &kb KB3   &trans                      &trans    &kb KB4   &kb KB5   &kb KB6   &kb KB7   &trans
-                &trans       &trans    &trans    &trans    &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &kp C_S &kp C_C &kp C_V &kp C_T &trans &trans &kp M_X &trans &trans &trans &trans
+                &trans &kp C_Z &kp C_X &kp C_F &kp C_G &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &mo 3 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
