@@ -16,6 +16,8 @@
 &msc { acceleration-exponent = <1>; time-to-max-speed-ms = <100>; delay-ms = <0>; };
 &mmv { time-to-max-speed-ms = <500>; acceleration-exponent = <1>; trigger-period-ms = <16>; };
 
+/dts-v1/;
+
 / {
     behaviors {
         tp: tap_preferred {
@@ -26,6 +28,12 @@
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+        vol_encoder: vol_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            tap-ms = <100>;
         };
     };
 
@@ -41,29 +49,29 @@
                 &kp LSFT     &kp Z     &kp X     &kp C     &kp V     &kp B                       &kp N     &kp M     &kp COMM  &kp DOT   &kp FSLH  &kp ENT
                 &kp LALT     &kp LCTRL &kp LGUI  &mo 1     &kp SPC   &mt LGUI SPACE                     &kp SPC   &mo 2     &kp LEFT  &kp DOWN  &kp UP    &kp RGHT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&vol_encoder>;
         };
 
         lower_layer {
             display-name = "NUMBER";
             bindings = <
                 &kp TILDE    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                      &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-                &trans       &kp EXLM  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR &kp PIPE
-                &trans       &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                      &kp F6    &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLS
-                &trans       &trans    &trans    &trans    &trans    &trans                      &trans    &trans    &kp HOME  &kp PGDN  &kp PGUP  &kp END
+                &mmv MOVE_LEFT &kp EXLM  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT                   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR &kp PIPE
+                &mmv MOVE_DOWN &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                      &kp F6    &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLS
+                &mmv MOVE_UP &trans    &trans    &trans    &trans    &trans                      &trans    &trans    &kp HOME  &kp PGDN  &kp PGUP  &kp END
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&vol_encoder>;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             bindings = <
                 &bt BT_SEL 0 &kp C_PREV &kp C_PLAY &kp C_NEXT &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
-                &trans       &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &trans                      &trans    &trans    &trans    &trans    &trans    &trans
-                &trans       &kp HOME   &kp PGUP   &kp PGDN   &kp END   &trans                      &trans    &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_FF &kp C_REW
-                &trans       &trans     &trans     &trans     &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
+                &mmv MOVE_LEFT &kp LEFT   &kp UP     &kp DOWN   &kp RIGHT &trans                      &trans    &trans    &trans    &trans    &trans    &trans
+                &mmv MOVE_DOWN &kp HOME   &kp PGUP   &kp PGDN   &kp END   &trans                      &trans    &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_FF &kp C_REW
+                &mmv MOVE_UP &trans     &trans     &trans     &trans    &trans                      &trans    &trans    &trans    &trans    &trans    &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&vol_encoder>;
         };
 
         emacs_layer {
@@ -71,10 +79,10 @@
             bindings = <
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &kp C_S &kp C_C &kp C_V &kp C_T &trans &trans &kp M_X &trans &trans &trans &trans
-                &trans &kp C_Z &kp C_X &kp C_F &kp C_G &trans &trans &trans &trans &trans &trans &trans
+                &trans &kp C_Z &kp X_F &kp C_F &kp C_G &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &mo 3 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&vol_encoder>;
         };
     };
 };
