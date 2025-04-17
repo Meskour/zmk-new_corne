@@ -38,7 +38,7 @@ layers:
   - SLSH
   - ENT
   - $$mdi:apple-keyboard-option$$
-  - LCTL
+  - $$mdi:apple-keyboard-control$$
   - LGUI
   - below
   - SPC
@@ -99,7 +99,7 @@ layers:
   - PGUP
   - END
   above:
-  - '&alt_tab'
+  - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - $$mdi:skip-previous$$
   - PLAY
   - $$mdi:skip-next$$
