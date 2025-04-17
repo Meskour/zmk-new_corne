@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: eyelash_corne}
 layers:
-  base:
+  default:
   - $$mdi:keyboard-tab$$
   - Q
   - W
@@ -40,16 +40,16 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - LCTL
   - LGUI
-  - lower
+  - below
   - SPC
   - {t: '$$mdi:keyboard-space$$', h: LGUI}
   - SPC
-  - raise
+  - above
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-up-bold$$
   - RGHT
-  lower:
+  below:
   - '~'
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -98,7 +98,7 @@ layers:
   - PGDN
   - PGUP
   - END
-  raise:
+  above:
   - '&alt_tab'
   - $$mdi:skip-previous$$
   - PLAY
